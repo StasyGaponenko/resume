@@ -1,0 +1,281 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  padding: 40px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.night {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Контейнер */
+.container {
+  max-width: 900px;
+  margin: auto;
+  background-color: #f7f7f7;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+body.night .container {
+  background-color: #1c1c1c;
+}
+
+/* Заголовки */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+body.night h1, body.night h2 {
+  color: #fff;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  letter-spacing: 0.5px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 30px 0;
+}
+
+body.night hr {
+  background-color: #444;
+}
+
+/* Секції */
+section {
+  margin-bottom: 30px;
+}
+
+/* Карточки для кожного розділу */
+.card {
+  background-color: #fff;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.night .card {
+  background-color: #333;
+}
+
+body.night .card:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Списки */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li i {
+  color: #c0392b; /* червоний акцент */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+/* Відгуки */
+#comments > div {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.night #comments > div {
+  background-color: #2a2a2a;
+}
+
+#comments > div:hover {
+  background-color: #e0e0e0;
+}
+
+body.night #comments > div:hover {
+  background-color: #444;
+}
+
+#comments .comment-author {
+  font-weight: bold;
+  color: #c0392b; /* червоний акцент */
+  font-size: 16px;
+}
+
+#comments .comment-body {
+  font-size: 14px;
+  color: #333;
+}
+
+body.night #comments .comment-body {
+  color: #ddd;
+}
+
+/* Кнопки */
+button {
+  background-color: #c0392b; /* червоний */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #a93226;
+  transform: translateY(-3px);
+}
+
+/* Модальне вікно */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #000;
+  margin: 5% auto;
+  padding: 25px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.night .modal-content {
+  background-color: #242424;
+  color: #fff;
+}
+
+body.night .modal-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Форми */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+input:focus, textarea:focus {
+  border-color: #c0392b; /* червоний */
+  outline: none;
+}
+
+body.night input,
+body.night textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+/* Кнопка зміни теми */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #c0392b;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 1100;
+}
+
+body.night .theme-toggle {
+  background-color: #555;
+}
+
+/* Вікно localStorage */
+#footer-info pre {
+  max-height: 250px; /* Підвищений ліміт для кращого прокручування */
+  overflow-y: auto;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: #333;
+  white-space: pre-wrap; /* Щоб текст не вилазив за межі */
+  word-wrap: break-word;
+}
+
+body.night #footer-info pre {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Додаткові стилі для прокручування */
+#footer-info {
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 12px;
+}
+
+body.night #footer-info {
+  background-color: #2a2a2a;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Гапоненко Анастасія">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гапоненко Анастасія</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Гапоненко Анастасія</h1>
+    <p>Майбутній спеціаліст у сфері кібербезпеки</p>
+
+    <hr>
+
+    <h2>Контактна інформація</h2>
+    <ul>
+      <li><i class="fas fa-envelope"></i> <b>Email:</b> nstgpnnk@gmail.com</li>
+      <li><i class="fas fa-phone"></i> <b>Телефон:</b> +380 68 711 20 63</li>
+      <li><i class="fas fa-location-dot"></i> <b>Місто:</b> Львів, Україна</li>
+    </ul>
+
+    <hr>
+
+    <h2>Освіта</h2>
+    <ul>
+      <li><b>Середня загальна освіта:</b> СЗШ №49 м. Львова (2011 - 2022)</li>
+      <li><b>Кібербезпека:</b> Національний університет "Львівська Політехніка" (2022 - теперішній час)</li>
+    </ul>
+
+    <hr>
+
+    <h2>Навички</h2>
+    <ul>
+      <li>Комунікація та лідерство</li>
+      <li>Linux (Ubuntu, Kali Linux)</li>
+      <li>Burp Suite</li>
+      <li>Python</li>
+      <li>C++</li>
+      <li>T-SQL</li>
+    </ul>
+
+    <hr>
+
+    <h2>Досвід</h2>
+    <ul>
+      <li>Була PM у командному проєкті</li>
+      <li>Створення власного сайту з використанням PHP та MySQL</li>
+      <li>Розв’язування задач з пошуку вразливостей</li>
+      <li>Робота з Kali Linux та спеціалізованими інструментами</li>
+    </ul>
+
+    <hr>
+
+    <h2>Відгуки роботодавців</h2>
+    <div id="comments"></div>
+
+    <footer id="footer-info"></footer>
+  </div>
+
+  <!-- Кнопка перемикання теми -->
+  <button class="theme-toggle">Змінити тему</button>
+
+  <!-- Модальне вікно -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <form action="https://formspree.io/f/xeoglkea" method="POST">
+        <h3>Зворотній зв'язок</h3>
+        <input type="text" name="name" placeholder="Ім’я" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <textarea name="message" placeholder="Повідомлення" required rows="4"></textarea>
+        <button type="submit">Відправити</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const browserInfo = {
+      platform: navigator.platform,
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      appVersion: navigator.appVersion
+    };
+    localStorage.setItem("browserInfo", JSON.stringify(browserInfo));
+    const footer = document.getElementById("footer-info");
+    const info = JSON.parse(localStorage.getItem("browserInfo"));
+    footer.innerHTML = "<h3>Інформація з localStorage:</h3><pre>" + JSON.stringify(info, null, 2) + "</pre>";
+
+    fetch("https://jsonplaceholder.typicode.com/posts/4/comments")
+      .then(response => response.json())
+      .then(comments => {
+        const commentsDiv = document.getElementById("comments");
+        comments.forEach(c => {
+          const commentBlock = document.createElement("div");
+          commentBlock.innerHTML = `
+            <p><strong>👤 Ім’я:</strong> ${c.name}</p>
+            <p><strong>📧 Email:</strong> ${c.email}</p>
+            <p><strong>💬 Коментар:</strong> ${c.body}</p>
+            <hr>
+          `;
+          commentsDiv.appendChild(commentBlock);
+        });
+      });
+
+    setTimeout(() => {
+      document.getElementById("modal").style.display = "block";
+    }, 60000);
+
+    const toggleBtn = document.querySelector(".theme-toggle");
+    const setTheme = () => {
+      const hour = new Date().getHours();
+      document.body.classList.toggle("night", !(hour >= 7 && hour < 21));
+    };
+    setTheme();
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("night");
+    });
+  </script>
+</body>
+</html>
